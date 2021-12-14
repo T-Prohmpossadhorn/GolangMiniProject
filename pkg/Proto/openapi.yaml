@@ -1,0 +1,31 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/apps/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: FruitListService
+    version: 0.0.1
+paths:
+    /v1alpha1/FullList:
+        get:
+            summary: GetFullList return all of the data
+            operationId: FruitListService_GetFullList
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FullList'
+components:
+    schemas:
+        Fruit:
+            properties:
+                fruit:
+                    type: string
+        FullList:
+            properties:
+                fruit:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Fruit'

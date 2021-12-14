@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package rf.golangminiproject.v1alpha1;
+
+import "google/api/annotations.proto";
+import "google/api/field_behavior.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/type.proto";
+import "google/protobuf/descriptor.proto";
+import "google/protobuf/source_context.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
+
+option go_package = "github.com/T-Prohmpossadhorn/GolangMiniProject/Proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    responses: {
+        key: "200";
+    }
+    responses: {
+        key: "404";
+        value: {
+            description: "Returned when the resource does not exist.";
+        }
+    }
+    responses: {
+        key: "500";
+        value: {
+            description: "Returned when the service is temporarily unavailable.";
+        }
+    }
+    responses: {
+        key: "503";
+        value: {
+            description: "Returned when the resource is temporarily unavailable.";
+        }
+    }
+};
+
+service FruitListService {
+    // GetFullList return all of the data
+	rpc GetFullList (GetFullListRequest) returns (FullList) {
+		option (google.api.http) = {
+			get: "/v1alpha1/FullList",
+		};
+	}
+}
+
+message GetFullListRequest {}
+
+message FullList {
+    repeated Fruit fruit = 1;
+}
+
+message Fruit {
+    string fruit = 1;
+}
