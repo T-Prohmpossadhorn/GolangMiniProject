@@ -1,6 +1,6 @@
 # GolangMiniProject
 
-This is a mini project for New-joiner Golang Developer for Rabbit-care
+This is a mini project for New-joiner Golang Developer at Rabbit-care
 
 * Add a rpc method for retriving first filter fruit from the list defined in the text file. And generate GRPC code.
 * Add the test-case of `Getfirstfilter(filter string) string` in db.go
